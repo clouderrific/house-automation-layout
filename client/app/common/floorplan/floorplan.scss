@@ -1,0 +1,71 @@
+@import "../common";
+
+@mixin fanRotate($speed) {
+  transform-origin: 63.2% 50%;
+  -webkit-animation:spin $speed linear infinite;
+  -moz-animation:spin $speed linear infinite;
+  animation:spin $speed linear infinite;
+}
+
+#house-layout {
+  height: 1000px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  /* Room Styling */
+  g path {
+    fill:#e0e4cc;
+    fill-opacity:1;
+    stroke:#c9ccb7;
+    stroke-width:0.26458332px;
+    stroke-linecap:butt;
+    stroke-linejoin:miter;
+    stroke-opacity:1;
+  }
+  g path:hover {
+    fill:#c9ccb7;
+    stroke: #adb09b;
+  }
+  g path.bedroom {
+    fill:#69d2e7;
+    stroke:#5ebccf;
+  }
+  g path.closet,
+  g path.utility,
+  g path.bathroom {
+    fill:#a7dbd8;
+    stroke:#96c4c2;
+  }
+  g path.outdoor {
+    fill:#556270;
+    stroke:#59646f;
+  }
+  g path.void {
+    fill:#c9ccb7;
+    stroke:#c9ccb7;
+  }
+  g path.family {
+    fill:#c7f464;
+    stroke:#b2db59;
+  }
+  /* Fan Styling */
+  g path.fan {
+    display:inline;
+    fill:#784421;
+    fill-opacity:1;
+    stroke-width:0.04118573;
+  }
+  g path.fan.active {
+    @include fanRotate(2.5s);
+  }
+  g path.fan.active.medium {
+    @include fanRotate(1.5s);
+  }
+  g path.fan.active.high {
+    @include fanRotate(.5s);
+  }
+}
+
+@-moz-keyframes spin { 100% { -moz-transform: rotate(360deg); } }
+@-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); } }
+@keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }

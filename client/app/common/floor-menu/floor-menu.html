@@ -1,0 +1,10 @@
+<nav id="cd-vertical-nav" >
+  <ul>
+    <li ng-repeat="floor in $ctrl.floors">
+      <a href="#section1" ng-click="$ctrl.toggleFloor(floor)">
+        <span class="cd-dot"></span>
+        <span class="cd-label">{{floor}}</span>
+      </a >
+    </li>
+  </ul>
+</nav>

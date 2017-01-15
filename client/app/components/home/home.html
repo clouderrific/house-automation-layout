@@ -1,9 +1,18 @@
-<navbar></navbar>
-<header>
-  <hero></hero>
-</header>
 <main>
-  <div>
-    <h1>Found in {{ $ctrl.name }}.html</h1>
+  <floormenu></floormenu>
+  <div class="col col-60 home-status">
+    <h2>
+      {{ $ctrl.floorplanService.floor }}
+      {{ ($ctrl.floorplanService.currentRoom.name) ? '- ' + $ctrl.floorplanService.currentRoom.name : ''}}
+    </h2>
+    <span ng-if="$ctrl.floorplanService.currentRoom.name">
+      <h3>Room Details</h3>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce ac dapibus ante. Mauris et pulvinar nunc. Integer sed auctor urna, id consectetur risus. Nulla pharetra lectus ut faucibus faucibus. Donec vehicula, metus porta bibendum porta, turpis tortor laoreet orci, sed mollis neque lectus eget est. Nullam scelerisque id dui sit amet pretium. Pellentesque mi urna, sagittis faucibus arcu et, varius laoreet orci. Ut eu turpis quam. Phasellus vel tortor massa. Cras quis varius ipsum, nec vehicula nibh.
+      </p>
+    </span>
+  </div>
+  <div class="col col-40 home-map">
+    <floorplan></floorplan>
   </div>
 </main>

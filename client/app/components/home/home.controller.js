@@ -1,7 +1,12 @@
+import angular from 'angular';
+
 class HomeController {
-  constructor() {
-    this.name = 'home';
+  constructor(floorplanService) {
+    this.floorplanService = floorplanService;
+    console.log(floorplanService)
   }
 }
+
+HomeController.$inject = ['floorplanService'];
 
 export default HomeController;
