@@ -6,11 +6,12 @@
       {{ ($ctrl.floorplanService.currentRoom.name) ? '- ' + $ctrl.floorplanService.currentRoom.name : ''}}
     </h2>-->
     <h2>{{ $ctrl.floorplanService.currentRoom.name }}</h2>
-    <div class="col col-25 panel">
-      <h1>{{ $ctrl.floorplanService.currentTemperature }}</h1>
-      <p>{{ $ctrl.floorplanService.floor }} Temperature</p>
-      <span>&deg;f</span>
-    </div>
+    <clock></clock>
+    <tile
+      title="{{$ctrl.floorplanService.currentTemperature}}"
+      message="{{$ctrl.floorplanService.floor}}"
+      offset-text="&deg;f">
+    </tile>
   </div>
   <div class="col col-40 home-map">
     <floorplan></floorplan>
