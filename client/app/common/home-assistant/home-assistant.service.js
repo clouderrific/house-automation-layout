@@ -6,24 +6,20 @@ class HomeAssistantService {
     this.$q = $q;
     this.baseUrl = 'http://10.5.1.253:8080';
   }
-  getStates(overrideCache) {
+  getStates() {
     return this.$q((resolve, reject )=> {
-      if (overrideCache || !Array.isArray(this.entityCollectionCache)) {
-        return this.$http.get(`${this.baseUrl}/api/states`).then((response) => {
-          let entityCollection = [];
-          if (response && response.data && Array.isArray(response.data)) {
-            response.data.map(entity => {
-              entityCollection.push(new Entity(entity));
-            });
-            this.entityCollectionCache = entityCollection;
-            resolve(entityCollection);
-          } else {
-            reject(entityCollection);
-          }
-        });
-      } else {
-        resolve(this.entityCollectionCache);
-      }
+      return this.$http.get(`${this.baseUrl}/api/states`).then((response) => {
+        let entityCollection = [];
+        if (response && response.data && Array.isArray(response.data)) {
+          response.data.map(entity => {
+            entityCollection.push(new Entity(entity));
+          });
+          this.entityCollectionCache = entityCollection;
+          resolve(entityCollection);
+        } else {
+          reject(entityCollection);
+        }
+      });
     });
   }
   getIndoorTemp(floor) {

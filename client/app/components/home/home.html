@@ -1,10 +1,6 @@
 <main>
   <floormenu></floormenu>
   <div class="col col-60 home-status">
-    <!--<h2>
-      {{ $ctrl.floorplanService.floor }}
-      {{ ($ctrl.floorplanService.currentRoom.name) ? '- ' + $ctrl.floorplanService.currentRoom.name : ''}}
-    </h2>-->
     <h2>{{ $ctrl.floorplanService.currentRoom.name }}</h2>
     <clock></clock>
     <tile
@@ -12,6 +8,7 @@
       message="{{$ctrl.floorplanService.floor}}"
       offset-text="&deg;f">
     </tile>
+    <weather></weather>
   </div>
   <div class="col col-40 home-map">
     <floorplan></floorplan>

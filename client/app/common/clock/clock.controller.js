@@ -1,3 +1,5 @@
+import Moment from 'moment';
+
 class ClockController {
   constructor($scope, $timeout, dateFilter) {
     this.$timeout = $timeout;
@@ -11,8 +13,9 @@ class ClockController {
     this.updateLater();
   }
   updateTime() {
+    let time = new Moment();
     this.offsetText = this.dateFilter(new Date(), 'a');
-    this.date = this.dateFilter(new Date(), 'M/d/yy');
+    this.date = time.format('dddd[,] MMMM Do YYYY');
     this.time = this.dateFilter(new Date(), this.format);
   }
   updateLater() {

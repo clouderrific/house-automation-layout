@@ -8,6 +8,7 @@ import FloorMenu from './floor-menu/floor-menu';
 import HomeAssistant from './home-assistant/home-assistant';
 import Tile from './tile/tile';
 import Clock from './clock/clock';
+import Weather from './weather/weather';
 
 let commonModule = angular.module('app.common', [
   Navbar,
@@ -18,7 +19,8 @@ let commonModule = angular.module('app.common', [
   FloorMenu,
   HomeAssistant,
   Tile,
-  Clock
+  Clock,
+  Weather
 ])
 
 .name;
